@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center" style="text-align: center;">Personality test</h1>
+        <div class="border border-secondary mt-4 mx-auto p-2" style="width: fit-content;">
+
+            <h5 class="question mb-3">Q1:You are completely exhausted after a stressful and tiring week at work. What
+                will
+                you spend your weekend off doing?</h5>
+            <div>
+                <input class="form-check-input" type="checkbox" id="" value="" aria-label="...">
+                <label class="answer1 form-check-label" for="">Call your friends and invite them out to dinner, go to
+                    the cinema, entertainment area together </label>
+
+            </div>
+            <div>
+                <input class="form-check-input" type="checkbox" id="" value="" aria-label="...">
+                <label class="answer2 form-check-label" for="">Turn on "Do Not Disturb" mode on your phone and at home
+                    watch your favorite movie, read a book and soak in the bath</label>
+
+            </div>
+            <button class="nextBtn btn btn-secondary mt-3">Next Question</button>
+            <button class="submitBtn btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#resultBoard">Submit</button>
+
+
+        </div>
+        <div class="modal fade" tabindex="-1" id="resultBoard">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Your personality is <span class="type"></span></h5>
+                        <button type="button" class="btn-close" id="closeBtn" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="result"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="closeBTN btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.submitBtn').hide();
+            $('#closeBtn').click(function () {
+                window.location.reload();
+            })
+            $('.closeBTN').click(function () {
+                window.location.reload();
+            })
+            $countclick = 1;
+            $('.nextBtn').click(function () {
+                if ($('.form-check-input').is(':checked')) {
+                    console.log($('.question').text());
+                    $countclick++;
+                    if ($countclick == 2) {
+                        $('.question').html(
+                            'Q2:Which of the following statements best describes your personality?');
+                        $('.answer1').html(
+                            "The most important thing is what's happening in the present. You often look at the problem and pay attention to the details"
+                        );
+                        $('.answer2').html(
+                            "Likes to daydream and speculate about upcoming events. When making decisions, you often rely on intuition more than information "
+                        );
+                        $('.form-check-input').prop('checked', false);
+                        $countclick++;
+                        console.log($countclick)
+
+                    } else if ($countclick == 4) {
+
+                        $('.question').html(
+                            "Q3: A rival company wants to invite you to work. The salary they offer is higher than your company's income level, but you really love your colleagues and superiors at your current workplace. Moreover, your boss also promises to promote you to a manager position when he retires. So how will you make the decision?"
+                        );
+                        $('.answer1').html(
+                            'Will find out all the information about the rival company, seek advice from the HR director and list out all the advantages and disadvantages. In situations like this, it is very important to consider everything and look at the situation with a "cold head"'
+                        );
+                        $('.answer2').html(
+                            "Will listen to my feelings and follow what my heart tells me ");
+
+                        $('.form-check-input').prop('checked', false)
+                        $countclick++;
+                        console.log($countclick)
+
+
+                    } else if ($countclick == 6) {
+                        $('.question').html(
+                            "Q4: Only 2 weeks left until your best friend's wedding. What did you prepare to come to your friend's wedding?"
+                        );
+                        $('.answer1').html(
+                            'Carefully prepare gifts and clothes that will be worn at the wedding 2 weeks ago'
+                        );
+                        $('.answer2').html(
+                            "The best things always happen naturally. So don't prepare anything ");
+
+                        $('.form-check-input').prop('checked', false);
+                        $('.submitBtn').show();
+                        $('.nextBtn').hide();
+                        $countclick++;
+                        console.log($countclick)
+
+                    }
+                }
+            })
+            $result = "";
+            $('.form-check-input').click(function () {
+                if ($('.form-check-input').filter(':even').is(':checked') && $countclick == 1) {
+                    console.log('first');
+                    $tmp = "e";
+                    $result += $tmp;
+                } else if ($('.form-check-input').filter(':odd').is(':checked') && $countclick == 1) {
+                    console.log('second')
+                    $tmp = "i";
+                    $result += $tmp;
+
+                } else if ($('.form-check-input').filter(':even').is(':checked') && $countclick == 3) {
+                    console.log('first2');
+                    $tmp = "s";
+                    $result += $tmp;
+
+                } else if ($('.form-check-input').filter(':odd').is(':checked') && $countclick == 3) {
+                    console.log('second2')
+                    $tmp = "n";
+                    $result += $tmp;
+                } else if ($('.form-check-input').filter(':even').is(':checked') && $countclick == 5) {
+                    console.log('first3');
+                    $tmp = "t";
+                    $result += $tmp;
+                } else if ($('.form-check-input').filter(':odd').is(':checked') && $countclick == 5) {
+                    console.log('second3')
+                    $tmp = "f";
+                    $result += $tmp;
+                } else if ($('.form-check-input').filter(':even').is(':checked') && $countclick == 7) {
+                    console.log('first4');
+                    $tmp = "j";
+                    $result += $tmp;
+                } else if ($('.form-check-input').filter(':odd').is(':checked') && $countclick == 7) {
+                    console.log('second4')
+                    $tmp = "p";
+                    $result += $tmp;
+                }
+                console.log($result);
+                if ($result === "istj") {
+                    $('.type').text('ISTJ-Inspector');
+                    $('.result').text(
+                        'You are a caring and responsible person. You always know how to analyze information, are very sensitive to the assessment of right and wrong, and maintain an objective attitude. You are also a person who is dedicated to work and behaves according to principles. ISTJ is the most common personality type, up to 13% of the worlds population belongs to this personality type. The life motto of this personality group is "only the truth", respecting the truth and tending to absorb a lot of information and remember it for a long time.'
+                    )
+                } else if ($result === "istp") {
+                    $('.type').text('ISTP-Craftsman');
+                    $('.result').text(
+                        'Belonging to the group of people with ISTP personality, there will certainly be different things that will surprise you. ISTPs often lead a predominantly introverted lifestyle. You always solve problems rationally and logically rather than emotionally. You are not in a hurry to make decisions and are always on time. You are naturally a good communicator, but you will refuse to communicate if you feel dishonest.'
+                    )
+                } else if ($result === "isfj") {
+                    $('.type').text('ISFJ - Consultant');
+                    $('.result').text(
+                        'ISFJs always live in a warm and loving world. You are warm and kind, always believing in the best in others. You are always observant and very careful with your words and deeds. Kind and caring, you see your main goal as helping people and making them happier.'
+                    )
+                } else if ($result === "infp") {
+                    $('.type').text('INFP – Mediator');
+                    $('.result').text(
+                        'You are a calm and reserved person. You love writing because you can easily reflect and convey your ideas in words. People in this group are very creative and tend to see things and actions from an idealistic point of view rather than from logical thinking.'
+                    )
+                } else if ($result === "isfp") {
+                    $('.type').text('ISFP – Musician');
+                    $('.result').text(
+                        'You can find joy in simple things. You always help others but never interfere with their privacy. You are very practical, caring, gentle, reliable. However, this ISFP personality is often viewed as the most spontaneous and unpredictable. The distinguishing feature of this personality group is changeability.'
+                    )
+                } else if ($result === "intp") {
+                    $('.type').text('INTP – Architect');
+                    $('.result').text(
+                        "An egotist and philosopher, you don't like being too expressive. You are always looking for feelings of calm and comfort. You are very careful when making decisions, like to analyze and look for connections between past, present and future. You are very sensitive to changes. You always try to collect all your facts, thoughts and ideas. That is why you are very often stressed."
+                    )
+                } else if ($result === "infj") {
+                    $('.type').text('INFJ – Protector');
+                    $('.result').text(
+                        "You always help those who need you and that's why people always seek your advice. However, you are very vulnerable to conflicts. This type of person never stops learning, making self-development a key priority."
+                    )
+                } else if ($result === "intj") {
+                    $('.type').text('INTJ – Strategic Advisor');
+                    $('.result').text(
+                        "You are very intelligent and inexplicably mysterious. People with the INTJ personality type often radiate confidence and have a wealth of knowledge. You are quite “nerd”, very decisive and insightful. INTJs often keep their opinions to themselves if the topic of discussion doesn't interest you much."
+                    )
+                } else if ($result === "estj") {
+                    $('.type').text('ESTJ – Manager');
+                    $('.result').text(
+                        'You are realistic and consistent. You want everything to have a clear plan. You like to convince people of correctness and make them think the way you think. You are open to communication, love meeting new people. You never forget to take care of your loved ones and always know how to express your feelings.'
+                    )
+                } else if ($result === "estp") {
+                    $('.type').text('ESTP - Founder');
+                    $('.result').text(
+                        'You are someone who always strives to achieve your goals by any means, even if it requires the use of physical strength. You stick to the plan and may face dependence and compromise. You are a born warrior, very active. You can objectively assess even the most stressful situation and provide quick and accurate feedback.'
+                    )
+                } else if ($result === "esfp") {
+                    $('.type').text('ESFP - Performer');
+                    $('.result').text(
+                        'You like to follow your own personal preferences. However, you always try to impress people and create the image of a simple person. You are very practical despite hating stereotypes and repetitive things. Long-term planning and thinking are often your weakest personality traits,'
+                    )
+                } else if ($result === "entj") {
+                    $('.type').text('ENTJ - Marshal');
+                    $('.result').text(
+                        'You are adventurous and brave. You are easily inspired to start something new. At the same time, you know how to assess your abilities, both strengths and weaknesses, quite adequately. You are open to new ideas. You think positively, love sports and activities.'
+                    )
+                } else if ($result === "entp") {
+                    $('.type').text('ENTP - Inventor');
+                    $('.result').text(
+                        "You are a person who is always generating ideas and finding ways to create something new. You easily adapt to unfamiliar environments and master different working methods with ease.Because you don't like traditions and habits, you very often change your fields and interests. The important thing is that you can not only generate new ideas but also communicate them to others and make them come true."
+                    )
+                } else if ($result === "enfj") {
+                    $('.type').text('ENFJ - Teacher');
+                    $('.result').text(
+                        'You are emotional and have a special interest in others. You are very empathetic towards others emotionally and have excellent "reciprocal" skills. You are very jealous and distrustful in love relationships. The ENFJ is a very influential personality type. ENFJs are often charismatic and eloquent. It"' +
+                        "s always easy to communicate ideas and opinions with people."
+                    )
+                } else if ($result === "enfp") {
+                    $('.type').text('ENFP - Champion');
+                    $('.result').text(
+                        "You are energetic and inquisitive with clear creative skills. You combine the traits of an introvert and an extrovert. That's why you not only get along with people easily, but also empathize very well. You are very good at consulting. You have a very rich imagination and high IQ. You are a very harmonious person, able to maintain balance even in a rapidly changing environment."
+                    )
+                } else if ($result === "esfj") {
+                    $('.type').text('ESFJ - Supplier');
+                    $('.result').text(
+                        'You are always sociable with people and can act as the host of any party or social activity. You are attentive, caring, and always willing to help, even at the expense of your personal interests for others. However, you are also very independent. You can do everything without any help. You just need emotional support from those close to you.'
+                    )
+                }
+
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

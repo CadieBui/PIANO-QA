@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIANO</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="./stylesheet/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <ul id="keyboard">
+        <li note="C4" id="btnA" class="white">A</li>
+        <li note="C4#" id="btnW" class="black">W</li>
+        <li note="D4" id='btnS' class="white offset">S</li>
+        <li note="D4#" id="btnE" class="black">E</li>
+        <li note="E4" id="btnD" class="white offset">D</li>
+        <li note="F4" id="btnF" class="white">F</li>
+        <li note="F4#" id="btnT" class="black">T</li>
+        <li note="G4" id="btnG" class="white offset">G</li>
+        <li note="G4#" id="btnY" class="black">Y</li>
+        <li note="A4" id="btnH" class="white offset">H</li>
+        <li note="A4#" id="btnU" class="black">U</li>
+        <li note="B4" id="btnJ" class="white offset">J</li>
+        <li note="C5" id="btnK" class="white">K</li>
+    </ul>
+
+    <audio src="./notepack/C4.mp3" id="C"></audio>
+    <audio src="./notepack/Cs4.mp3" id="Cs"></audio>
+    <audio src="./notepack/D4.mp3" id="D"></audio>
+    <audio src="./notepack/Ds4.mp3" id="Ds"></audio>
+    <audio src="./notepack/E4.mp3" id="E"></audio>
+    <audio src="./notepack/F4.mp3" id="F"></audio>
+    <audio src="./notepack/Fs4.mp3" id="Fs"></audio>
+    <audio src="./notepack/G4.mp3" id="G"></audio>
+    <audio src="./notepack/Gs4.mp3" id="Gs"></audio>
+    <audio src="./notepack/A4.mp3" id="A"></audio>
+    <audio src="./notepack/As4.mp3" id="As"></audio>
+    <audio src="./notepack/B4.mp3" id="B"></audio>
+    <audio src="./notepack/C5.WAV" id="C5"></audio>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $('li#btnA.white').click(function () {
+            $('#C').get(0).play();
+        })
+        $('li#btnS.white').click(function () {
+            $('#D').get(0).play();
+        })
+        $('li#btnD.white').click(function () {
+            $('#E').get(0).play();
+        })
+        $('li#btnF.white').click(function () {
+            $('#F').get(0).play();
+        })
+        $('li#btnG.white').click(function () {
+            $('#G').get(0).play();
+        })
+        $('li#btnH.white').click(function () {
+            $('#A').get(0).play();
+        })
+        $('li#btnJ.white').click(function () {
+            $('#B').get(0).play();
+        })
+        $('li#btnK.white').click(function () {
+            $('#C5').get(0).play();
+        })
+
+        $('li#btnW.black').click(function () {
+            $('#Cs').get(0).play();
+        })
+        $('li#btnE.black').click(function () {
+            $('#Ds').get(0).play();
+        })
+        $('li#btnT.black').click(function () {
+            $('#Fs').get(0).play();
+        })
+        $('li#btnY.black').click(function () {
+            $('#Gs').get(0).play();
+        })
+        $('li#btnU.black').click(function () {
+            $('#As').get(0).play();
+        })
+
+        
+    })
+</script>
+
+</html>
