@@ -21,9 +21,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <h1 class="text-center" style="text-align: center;">Personality test</h1>
-        <div class="border border-secondary mt-4 mx-auto p-2" style="width: fit-content;">
+        <button type="button" class="start btn btn-outline-success ">Start to know your
+            personality</button>
+        <div class="border border-secondary mt-4 mx-auto p-2" id="test" style="width: fit-content;">
 
             <h5 class="question mb-3">Q1:You are completely exhausted after a stressful and tiring week at work. What
                 will
@@ -58,7 +60,7 @@
                         <p class="result"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="closeBTN btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="closeBTN btn btn-secondary" data-bs-dismiss="modal">Try again</button>
                     </div>
                 </div>
             </div>
@@ -67,6 +69,12 @@
     <script>
         $(document).ready(function () {
             $('.submitBtn').hide();
+            $('#test').hide();
+            $('.start').click(function()
+            {
+                $('#test').show();
+                $('.start').hide();
+            })
             $('#closeBtn').click(function () {
                 window.location.reload();
             })
