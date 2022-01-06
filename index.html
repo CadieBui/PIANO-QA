@@ -52,6 +52,7 @@
         $('li#btnA.white').click(function () {
             $('#C').get(0).play();
         })
+
         $('li#btnS.white').click(function () {
             $('#D').get(0).play();
         })
@@ -90,7 +91,73 @@
             $('#As').get(0).play();
         })
 
-        
+     
+        $(document).keydown(function(event)
+        {
+           
+            if(event.keyCode==65)
+            {
+                $('#C').get(0).play();
+            }
+            else if(event.keyCode==83)
+            {
+                $('#D').get(0).play();
+
+            }
+            else if(event.keyCode==68)
+            {
+                $('#D').get(0).play();
+
+            }
+            else if(event.keyCode==70)
+            {
+                $('#E').get(0).play();
+
+            }
+            else if(event.keyCode==71)
+            {
+                $('#D').get(0).play();
+
+            }
+            else if(event.keyCode==72)
+            {
+                $('#A').get(0).play();
+
+            }
+            else if(event.keyCode==74)
+            {
+                $('#B').get(0).play();
+
+            }
+            else if(event.keyCode==75)
+            {
+                $('#C5').get(0).play();
+
+            }
+            else if(event.keyCode==87)
+            {
+                $('#Cs').get(0).play();
+
+            } else if(event.keyCode==69)
+            {
+                $('#Ds').get(0).play();
+
+            }else if(event.keyCode==84)
+            {
+                $('#Fs').get(0).play();
+
+            }
+            else if(event.keyCode==89)
+            {
+                $('#Gs').get(0).play();
+
+            }
+            else if(event.keyCode==85)
+            {
+                $('#As').get(0).play();
+
+            }
+        })
     })
 </script>
 
