@@ -49,6 +49,7 @@
 </body>
 <script>
     $(document).ready(function () {
+        // $('.black').css('background','linear-gradient(45deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 33%) 100%);')
         $('li#btnA.white').click(function () {
             $('#C').get(0).play();
         })
@@ -98,65 +99,87 @@
             if(event.keyCode==65)
             {
                 $('#C').get(0).play();
+                $('li#btnA.white').css('background-color','gray');
             }
+            
             else if(event.keyCode==83)
             {
                 $('#D').get(0).play();
+                $('li#btnS.white').css('background-color','gray');
 
             }
             else if(event.keyCode==68)
             {
                 $('#D').get(0).play();
+                $('li#btnD.white').css('background-color','gray');
 
             }
             else if(event.keyCode==70)
             {
                 $('#E').get(0).play();
+                $('li#btnF.white').css('background-color','gray');
 
             }
             else if(event.keyCode==71)
             {
                 $('#D').get(0).play();
+                $('li#btnG.white').css('background-color','gray');
 
             }
             else if(event.keyCode==72)
             {
                 $('#A').get(0).play();
+                $('li#btnH.white').css('background-color','gray');
 
             }
             else if(event.keyCode==74)
             {
                 $('#B').get(0).play();
+                $('li#btnJ.white').css('background-color','gray');
 
             }
             else if(event.keyCode==75)
             {
                 $('#C5').get(0).play();
+                $('li#btnK.white').css('background-color','gray');
 
             }
             else if(event.keyCode==87)
             {
                 $('#Cs').get(0).play();
+                $('li#btnW.black').css('background','gray');
 
             } else if(event.keyCode==69)
             {
                 $('#Ds').get(0).play();
+                $('li#btnE.black').css('background','linear-gradient(45deg, hsl(0, 15%, 85%) 0%, hsl(0, 4%, 35%) 100%)');
+
 
             }else if(event.keyCode==84)
             {
                 $('#Fs').get(0).play();
+                $('li#btnT.black').css('background','linear-gradient(45deg, hsl(0, 15%, 85%) 0%, hsl(0, 4%, 35%) 100%)');
 
             }
             else if(event.keyCode==89)
             {
                 $('#Gs').get(0).play();
+                $('li#btnY.black').css('background','linear-gradient(45deg, hsl(0, 15%, 85%) 0%, hsl(0, 4%, 35%) 100%)');
 
             }
             else if(event.keyCode==85)
             {
                 $('#As').get(0).play();
+                $('li#btnU.black').css('background','linear-gradient(45deg, hsl(0, 15%, 85%) 0%, hsl(0, 4%, 35%) 100%)');
 
             }
+           
+        })
+        $(document).keyup(function()
+        {
+            $('li.white').css('background-color','white')
+            $('li.black').css('background','linear-gradient(45deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 33%) 100%)')
+
         })
     })
 </script>
